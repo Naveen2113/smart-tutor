@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-   
+
     <style>
         :root {
-            --primary-color: #6366f1;
+            --primary-color: #6567f821;
             --secondary-color: #4f46e5;
             --accent-color: #22d3ee;
             --light-color: #f8fafc;
@@ -21,27 +22,33 @@
             --code-bg: #1e293b;
             --terminal-bg: #0f172a;
         }
+
         body {
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f1f5f9;
             color: var(--dark-color);
-            padding-bottom: 60px; /* Space for small footer */
+            padding-bottom: 60px;
+            /* Space for small footer */
         }
+
         .navbar {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
             font-size: 1.5rem;
         }
+
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 60px 0;
             border-radius: 0 0 30px 30px;
         }
+
         .card {
             border: none;
             border-radius: 15px;
@@ -50,27 +57,32 @@
             margin-bottom: 20px;
             overflow: hidden;
         }
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
         .card-header {
             background-color: var(--primary-color);
             color: white;
             font-weight: 600;
             border-bottom: none;
         }
+
         .language-card {
             cursor: pointer;
             text-align: center;
             padding: 20px;
             height: 100%;
         }
+
         .language-icon {
             font-size: 3rem;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -79,20 +91,24 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
+
         .btn-primary:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             transform: translateY(-2px);
         }
+
         .progress {
             height: 10px;
             border-radius: 5px;
             background-color: #e2e8f0;
         }
+
         .progress-bar {
             background-color: var(--accent-color);
             border-radius: 5px;
         }
+
         .code-editor {
             background-color: var(--code-bg);
             border-radius: 10px;
@@ -102,6 +118,7 @@
             margin-bottom: 20px;
             position: relative;
         }
+
         .code-editor-header {
             display: flex;
             justify-content: space-between;
@@ -110,14 +127,17 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #334155;
         }
+
         .code-editor-title {
             font-weight: 600;
             color: #94a3b8;
         }
+
         .code-editor-actions {
             display: flex;
             gap: 10px;
         }
+
         .code-editor-actions button {
             background: none;
             border: none;
@@ -125,14 +145,17 @@
             cursor: pointer;
             font-size: 1rem;
         }
+
         .code-editor-actions button:hover {
             color: white;
         }
+
         .code-editor-content {
             min-height: 200px;
             font-size: 0.95rem;
             line-height: 1.5;
         }
+
         .terminal {
             background-color: var(--terminal-bg);
             border-radius: 10px;
@@ -142,6 +165,7 @@
             margin-bottom: 20px;
             min-height: 150px;
         }
+
         .terminal-header {
             display: flex;
             justify-content: space-between;
@@ -150,26 +174,33 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #334155;
         }
+
         .terminal-title {
             font-weight: 600;
             color: #94a3b8;
         }
+
         .terminal-content {
             font-size: 0.95rem;
             line-height: 1.5;
         }
+
         .terminal-line {
             margin-bottom: 5px;
         }
+
         .terminal-prompt {
             color: #10b981;
         }
+
         .terminal-output {
             color: #e2e8f0;
         }
+
         .terminal-error {
             color: #ef4444;
         }
+
         .quiz-option {
             padding: 15px;
             margin: 10px 0;
@@ -178,36 +209,44 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .quiz-option:hover {
             border-color: var(--primary-color);
             background-color: rgba(99, 102, 241, 0.05);
         }
+
         .quiz-option.selected {
             border-color: var(--primary-color);
             background-color: rgba(99, 102, 241, 0.1);
         }
+
         .quiz-option.correct {
             border-color: var(--success-color);
             background-color: rgba(16, 185, 129, 0.1);
         }
+
         .quiz-option.incorrect {
             border-color: var(--danger-color);
             background-color: rgba(239, 68, 68, 0.1);
         }
+
         .lesson-content {
             padding: 20px;
             line-height: 1.6;
         }
+
         .lesson-content h3 {
             color: var(--primary-color);
             margin-top: 25px;
             margin-bottom: 15px;
         }
+
         .lesson-content img {
             max-width: 100%;
             border-radius: 10px;
             margin: 15px 0;
         }
+
         .achievement-badge {
             width: 60px;
             height: 60px;
@@ -220,6 +259,7 @@
             font-size: 1.5rem;
             margin: 0 auto 10px;
         }
+
         .nav-tabs .nav-link {
             color: var(--dark-color);
             font-weight: 500;
@@ -227,10 +267,12 @@
             border-radius: 30px 30px 0 0;
             margin-right: 5px;
         }
+
         .nav-tabs .nav-link.active {
             background-color: var(--primary-color);
             color: white;
         }
+
         .dashboard-card {
             padding: 20px;
             border-radius: 15px;
@@ -238,6 +280,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
         }
+
         .stats-card {
             text-align: center;
             padding: 20px;
@@ -247,14 +290,17 @@
             margin-bottom: 20px;
             transition: transform 0.3s ease;
         }
+
         .stats-card:hover {
             transform: translateY(-5px);
         }
+
         .stats-number {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary-color);
         }
+
         .notification {
             position: fixed;
             top: 20px;
@@ -268,18 +314,23 @@
             transform: translateX(150%);
             transition: transform 0.3s ease;
         }
+
         .notification.show {
             transform: translateX(0);
         }
+
         .notification.success {
             background-color: var(--success-color);
         }
+
         .notification.error {
             background-color: var(--danger-color);
         }
+
         .notification.info {
             background-color: var(--primary-color);
         }
+
         .profile-avatar {
             width: 150px;
             height: 150px;
@@ -288,6 +339,7 @@
             border: 5px solid var(--primary-color);
             margin-bottom: 20px;
         }
+
         .chat-container {
             height: 400px;
             overflow-y: auto;
@@ -296,49 +348,60 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
+
         .chat-message {
             margin-bottom: 15px;
             display: flex;
         }
+
         .chat-message.user {
             justify-content: flex-end;
         }
+
         .chat-bubble {
             max-width: 70%;
             padding: 10px 15px;
             border-radius: 15px;
         }
+
         .chat-message.user .chat-bubble {
             background-color: var(--primary-color);
             color: white;
             border-bottom-right-radius: 5px;
         }
+
         .chat-message.tutor .chat-bubble {
             background-color: white;
             border: 1px solid #e2e8f0;
             border-bottom-left-radius: 5px;
         }
+
         .challenge-card {
             border-left: 4px solid var(--accent-color);
         }
+
         .difficulty-badge {
             font-size: 0.75rem;
             padding: 4px 8px;
             border-radius: 4px;
             font-weight: 600;
         }
+
         .difficulty-easy {
             background-color: rgba(16, 185, 129, 0.1);
             color: var(--success-color);
         }
+
         .difficulty-medium {
             background-color: rgba(245, 158, 11, 0.1);
             color: var(--warning-color);
         }
+
         .difficulty-hard {
             background-color: rgba(239, 68, 68, 0.1);
             color: var(--danger-color);
         }
+
         .code-snippet {
             background-color: var(--code-bg);
             border-radius: 8px;
@@ -346,16 +409,19 @@
             margin: 15px 0;
             overflow-x: auto;
         }
+
         .code-snippet pre {
             margin: 0;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             font-size: 0.9rem;
             line-height: 1.5;
         }
+
         .roadmap {
             position: relative;
             padding-left: 30px;
         }
+
         .roadmap::before {
             content: '';
             position: absolute;
@@ -365,10 +431,12 @@
             width: 2px;
             background-color: #e2e8f0;
         }
+
         .roadmap-item {
             position: relative;
             margin-bottom: 30px;
         }
+
         .roadmap-item::before {
             content: '';
             position: absolute;
@@ -380,19 +448,22 @@
             background-color: white;
             border: 2px solid var(--primary-color);
         }
+
         .roadmap-item.completed::before {
             background-color: var(--primary-color);
         }
+
         .roadmap-item.active::before {
             box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
         }
+
         .back-button {
             position: absolute;
             top: 20px;
             left: 20px;
             z-index: 10;
         }
-       
+
         /* AI Chatbox Styles */
         .ai-chatbox {
             position: fixed;
@@ -411,12 +482,12 @@
             opacity: 0;
             transform-origin: bottom right;
         }
-       
+
         .ai-chatbox.active {
             transform: scale(1);
             opacity: 1;
         }
-       
+
         .ai-chatbox-header {
             background-color: var(--primary-color);
             color: white;
@@ -427,7 +498,7 @@
             align-items: center;
             cursor: pointer;
         }
-       
+
         .ai-chatbox-body {
             flex: 1;
             padding: 15px;
@@ -435,13 +506,13 @@
             display: flex;
             flex-direction: column;
         }
-       
+
         .ai-chatbox-footer {
             padding: 12px;
             border-top: 1px solid #e2e8f0;
             display: flex;
         }
-       
+
         .ai-chatbox-input {
             flex: 1;
             border: 1px solid #e2e8f0;
@@ -449,7 +520,7 @@
             padding: 8px 15px;
             outline: none;
         }
-       
+
         .ai-chatbox-send {
             background-color: var(--primary-color);
             color: white;
@@ -463,7 +534,7 @@
             margin-left: 10px;
             cursor: pointer;
         }
-       
+
         .ai-chat-message {
             margin-bottom: 10px;
             max-width: 80%;
@@ -471,20 +542,20 @@
             border-radius: 15px;
             align-self: flex-start;
         }
-       
+
         .ai-chat-message.user {
             background-color: var(--primary-color);
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 5px;
         }
-       
+
         .ai-chat-message.ai {
             background-color: #f1f5f9;
             border: 1px solid #e2e8f0;
             border-bottom-left-radius: 5px;
         }
-       
+
         .ai-chatbox-toggle {
             position: fixed;
             bottom: 20px;
@@ -503,17 +574,17 @@
             font-size: 1.5rem;
             transition: all 0.3s ease;
         }
-       
+
         .ai-chatbox-toggle:hover {
             transform: scale(1.1);
             background-color: var(--secondary-color);
         }
-       
+
         .ai-chatbox-toggle.active {
             transform: rotate(45deg);
             background-color: var(--danger-color);
         }
-       
+
         /* Small Footer Styles */
         footer {
             background-color: var(--dark-color);
@@ -526,44 +597,45 @@
             z-index: 10;
             font-size: 0.8rem;
         }
-       
+
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-       
+
         .footer-links {
             display: flex;
             gap: 20px;
         }
-       
+
         .footer-links a {
             color: #cbd5e1;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-       
+
         .footer-links a:hover {
             color: var(--accent-color);
         }
-       
+
         .footer-copyright {
             color: #94a3b8;
         }
-       
+
         /* Video Player Styles */
         .video-container {
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
             margin-bottom: 20px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-       
+
         .video-container video {
             position: absolute;
             top: 0;
@@ -572,7 +644,7 @@
             height: 100%;
             background-color: #000;
         }
-       
+
         .video-controls {
             position: absolute;
             bottom: 0;
@@ -585,11 +657,11 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-       
+
         .video-container:hover .video-controls {
             opacity: 1;
         }
-       
+
         .video-play-btn {
             background: none;
             border: none;
@@ -598,7 +670,7 @@
             cursor: pointer;
             margin-right: 10px;
         }
-       
+
         .video-progress {
             flex: 1;
             height: 5px;
@@ -607,20 +679,20 @@
             margin: 0 10px;
             cursor: pointer;
         }
-       
+
         .video-progress-bar {
             height: 100%;
             background-color: var(--accent-color);
             border-radius: 5px;
             width: 0%;
         }
-       
+
         .video-time {
             color: white;
             font-size: 0.8rem;
             margin-left: 10px;
         }
-       
+
         .video-volume {
             background: none;
             border: none;
@@ -629,7 +701,7 @@
             cursor: pointer;
             margin-left: 10px;
         }
-       
+
         .video-fullscreen {
             background: none;
             border: none;
@@ -638,7 +710,7 @@
             cursor: pointer;
             margin-left: 10px;
         }
-       
+
         /* Interactive Quiz Styles */
         .quiz-timer {
             display: flex;
@@ -651,25 +723,25 @@
             border-radius: 20px;
             font-weight: 600;
         }
-       
+
         .quiz-timer i {
             font-size: 1.2rem;
         }
-       
+
         .quiz-question {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--dark-color);
         }
-       
+
         .quiz-options-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
-       
+
         .quiz-option-card {
             background-color: white;
             border: 2px solid #e2e8f0;
@@ -680,28 +752,28 @@
             display: flex;
             align-items: center;
         }
-       
+
         .quiz-option-card:hover {
             border-color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-       
+
         .quiz-option-card.selected {
             border-color: var(--primary-color);
             background-color: rgba(99, 102, 241, 0.05);
         }
-       
+
         .quiz-option-card.correct {
             border-color: var(--success-color);
             background-color: rgba(16, 185, 129, 0.1);
         }
-       
+
         .quiz-option-card.incorrect {
             border-color: var(--danger-color);
             background-color: rgba(239, 68, 68, 0.1);
         }
-       
+
         .quiz-option-letter {
             width: 30px;
             height: 30px;
@@ -715,11 +787,11 @@
             margin-right: 15px;
             flex-shrink: 0;
         }
-       
+
         .quiz-option-text {
             flex: 1;
         }
-       
+
         .quiz-explanation {
             background-color: #f1f5f9;
             border-left: 4px solid var(--primary-color);
@@ -728,16 +800,16 @@
             margin-top: 20px;
             display: none;
         }
-       
+
         .quiz-explanation.show {
             display: block;
         }
-       
+
         .quiz-explanation h5 {
             color: var(--primary-color);
             margin-bottom: 10px;
         }
-       
+
         /* Game Styles */
         .game-container {
             background-color: white;
@@ -746,20 +818,20 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             margin-bottom: 20px;
         }
-       
+
         .game-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-       
+
         .game-title {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
         }
-       
+
         .game-score {
             display: flex;
             align-items: center;
@@ -770,7 +842,7 @@
             border-radius: 20px;
             font-weight: 600;
         }
-       
+
         .game-board {
             background-color: #f8fafc;
             border-radius: 10px;
@@ -778,7 +850,7 @@
             min-height: 300px;
             position: relative;
         }
-       
+
         .code-block {
             background-color: var(--code-bg);
             color: #e2e8f0;
@@ -789,16 +861,16 @@
             cursor: move;
             transition: all 0.3s ease;
         }
-       
+
         .code-block:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-       
+
         .code-block.dragging {
             opacity: 0.5;
         }
-       
+
         .drop-zone {
             border: 2px dashed #cbd5e1;
             border-radius: 8px;
@@ -811,30 +883,30 @@
             color: #94a3b8;
             transition: all 0.3s ease;
         }
-       
+
         .drop-zone.active {
             border-color: var(--accent-color);
             background-color: rgba(34, 211, 238, 0.05);
         }
-       
+
         .game-controls {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
-       
+
         .game-btn {
             padding: 10px 25px;
             border-radius: 30px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
-       
+
         .game-btn:hover {
             transform: translateY(-2px);
         }
-       
+
         .game-feedback {
             text-align: center;
             padding: 15px;
@@ -842,102 +914,122 @@
             margin-top: 20px;
             display: none;
         }
-       
+
         .game-feedback.show {
             display: block;
         }
-       
+
         .game-feedback.success {
             background-color: rgba(16, 185, 129, 0.1);
             color: var(--success-color);
             border: 1px solid var(--success-color);
         }
-       
+
         .game-feedback.error {
             background-color: rgba(239, 68, 68, 0.1);
             color: var(--danger-color);
             border: 1px solid var(--danger-color);
         }
-       
+
         /* Enhanced Responsive Styles */
         @media (max-width: 992px) {
             .hero-section {
                 padding: 50px 0;
             }
+
             .hero-section h1 {
                 font-size: 2.5rem;
             }
+
             .stats-number {
                 font-size: 2rem;
             }
+
             .language-icon {
                 font-size: 2.5rem;
             }
         }
-       
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 40px 0;
                 border-radius: 0;
             }
+
             .hero-section h1 {
                 font-size: 2rem;
             }
+
             .hero-section p {
                 font-size: 1rem;
             }
+
             .hero-section .btn {
                 width: 100%;
                 margin-bottom: 10px;
             }
+
             .stats-number {
                 font-size: 1.8rem;
             }
+
             .language-icon {
                 font-size: 2rem;
             }
-            .code-editor, .terminal {
+
+            .code-editor,
+            .terminal {
                 padding: 15px;
                 font-size: 0.85rem;
             }
-            .code-editor-content, .terminal-content {
+
+            .code-editor-content,
+            .terminal-content {
                 font-size: 0.85rem;
             }
+
             .profile-avatar {
                 width: 120px;
                 height: 120px;
             }
+
             .achievement-badge {
                 width: 50px;
                 height: 50px;
                 font-size: 1.2rem;
             }
+
             .quiz-option {
                 padding: 12px;
                 font-size: 0.9rem;
             }
+
             .back-button {
                 position: relative;
                 top: auto;
                 left: auto;
                 margin-bottom: 15px;
             }
+
             .container.py-4 {
                 padding-top: 1rem;
                 padding-bottom: 1rem;
             }
+
             .card-body {
                 padding: 1rem;
             }
+
             .btn {
                 font-size: 0.9rem;
                 padding: 8px 15px;
             }
+
             .nav-tabs .nav-link {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
             }
-           
+
             /* Responsive AI Chatbox */
             .ai-chatbox {
                 width: 300px;
@@ -945,7 +1037,7 @@
                 right: 10px;
                 bottom: 70px;
             }
-           
+
             .ai-chatbox-toggle {
                 right: 10px;
                 bottom: 10px;
@@ -953,189 +1045,217 @@
                 height: 50px;
                 font-size: 1.2rem;
             }
-           
+
             /* Responsive Footer */
             .footer-content {
                 flex-direction: column;
                 gap: 10px;
                 text-align: center;
             }
-           
+
             .footer-links {
                 justify-content: center;
             }
-           
+
             body {
                 padding-bottom: 70px;
             }
-           
+
             /* Responsive Game */
             .quiz-options-grid {
                 grid-template-columns: 1fr;
             }
         }
-       
+
         @media (max-width: 576px) {
             .hero-section {
                 padding: 30px 0;
             }
+
             .hero-section h1 {
                 font-size: 1.8rem;
                 margin-bottom: 1rem;
             }
+
             .hero-section p {
                 font-size: 0.95rem;
                 margin-bottom: 1.5rem;
             }
+
             .hero-section .btn {
                 width: 100%;
                 margin-bottom: 10px;
             }
+
             .stats-card {
                 padding: 15px;
             }
+
             .stats-number {
                 font-size: 1.5rem;
             }
+
             .language-card {
                 padding: 15px;
             }
+
             .language-icon {
                 font-size: 1.8rem;
             }
-            .code-editor, .terminal {
+
+            .code-editor,
+            .terminal {
                 padding: 10px;
                 font-size: 0.8rem;
             }
-            .code-editor-content, .terminal-content {
+
+            .code-editor-content,
+            .terminal-content {
                 font-size: 0.8rem;
                 min-height: 150px;
             }
+
             .card {
                 margin-bottom: 15px;
             }
+
             .card-body {
                 padding: 0.75rem;
             }
+
             .btn {
                 font-size: 0.85rem;
                 padding: 6px 12px;
             }
+
             .navbar-brand {
                 font-size: 1.2rem;
             }
+
             .notification {
                 right: 10px;
                 left: 10px;
                 transform: translateY(-150%);
             }
+
             .notification.show {
                 transform: translateY(0);
             }
+
             .quiz-option {
                 padding: 10px;
                 font-size: 0.85rem;
             }
+
             .nav-tabs {
                 flex-wrap: nowrap;
                 overflow-x: auto;
                 white-space: nowrap;
             }
+
             .nav-tabs .nav-link {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.85rem;
             }
+
             .progress {
                 height: 8px;
             }
+
             .profile-avatar {
                 width: 100px;
                 height: 100px;
             }
+
             .achievement-badge {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
             }
+
             .roadmap {
                 padding-left: 20px;
             }
+
             .roadmap-item::before {
                 left: -20px;
                 width: 15px;
                 height: 15px;
             }
+
             .roadmap::before {
                 left: 7px;
             }
+
             .code-snippet {
                 padding: 10px;
                 font-size: 0.8rem;
             }
-           
+
             /* Responsive AI Chatbox */
             .ai-chatbox {
                 width: 250px;
                 height: 350px;
                 bottom: 60px;
             }
-           
+
             .ai-chatbox-header {
                 padding: 8px 12px;
             }
-           
+
             .ai-chatbox-header h5 {
                 font-size: 0.9rem;
             }
-           
+
             .ai-chatbox-body {
                 padding: 10px;
             }
-           
+
             .ai-chat-message {
                 font-size: 0.85rem;
                 padding: 8px;
             }
-           
+
             .ai-chatbox-footer {
                 padding: 8px;
             }
-           
+
             .ai-chatbox-input {
                 font-size: 0.85rem;
                 padding: 6px 12px;
             }
-           
+
             .ai-chatbox-send {
                 width: 30px;
                 height: 30px;
             }
-           
+
             /* Responsive Footer */
             .footer-content {
                 gap: 8px;
             }
-           
+
             .footer-links {
                 gap: 15px;
                 font-size: 0.75rem;
             }
-           
+
             .footer-copyright {
                 font-size: 0.7rem;
             }
-           
+
             /* Responsive Game */
             .game-controls {
                 flex-direction: column;
             }
-           
+
             .game-btn {
                 width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
@@ -1165,13 +1285,16 @@
                         <a class="nav-link" href="#" id="profileLink">Profile</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Help</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
                     </li>
@@ -1189,9 +1312,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <h1 class="display-4 fw-bold mb-4">Master Programming with Interactive Learning</h1>
-                            <p class="lead mb-4">Learn to code with hands-on exercises, real-time feedback, and personalized learning paths. From beginner to advanced, we've got you covered.</p>
+                            <p class="lead mb-4">Learn to code with hands-on exercises, real-time feedback, and
+                                personalized learning paths. From beginner to advanced, we've got you covered.</p>
                             <div class="d-flex flex-column flex-sm-row">
-                                <button class="btn btn-light btn-lg me-sm-3 mb-3 mb-sm-0" id="getStartedBtn">Start Learning</button>
+                                <button class="btn btn-light btn-lg me-sm-3 mb-3 mb-sm-0" id="getStartedBtn">Start
+                                    Learning</button>
                                 <button class="btn btn-outline-light btn-lg" id="exploreBtn">Explore Languages</button>
                             </div>
                         </div>
@@ -1222,7 +1347,8 @@ console.log(greetUser("Developer"));</code></pre>
                     <div class="row text-center mb-5">
                         <div class="col-12">
                             <h2 class="fw-bold">Why Choose Smart Tutor?</h2>
-                            <p class="lead text-muted">Our platform offers unique features to accelerate your coding journey</p>
+                            <p class="lead text-muted">Our platform offers unique features to accelerate your coding
+                                journey</p>
                         </div>
                     </div>
                     <div class="row g-4">
@@ -1233,7 +1359,8 @@ console.log(greetUser("Developer"));</code></pre>
                                         <i class="bi bi-play-circle"></i>
                                     </div>
                                     <h4 class="card-title">Interactive Videos</h4>
-                                    <p class="card-text">Learn with our curated video tutorials from industry experts, with in-video quizzes and exercises.</p>
+                                    <p class="card-text">Learn with our curated video tutorials from industry experts,
+                                        with in-video quizzes and exercises.</p>
                                 </div>
                             </div>
                         </div>
@@ -1244,7 +1371,8 @@ console.log(greetUser("Developer"));</code></pre>
                                         <i class="bi bi-controller"></i>
                                     </div>
                                     <h4 class="card-title">Coding Games</h4>
-                                    <p class="card-text">Master programming concepts through fun, interactive games that challenge and engage you.</p>
+                                    <p class="card-text">Master programming concepts through fun, interactive games that
+                                        challenge and engage you.</p>
                                 </div>
                             </div>
                         </div>
@@ -1255,7 +1383,8 @@ console.log(greetUser("Developer"));</code></pre>
                                         <i class="bi bi-trophy"></i>
                                     </div>
                                     <h4 class="card-title">Achievement System</h4>
-                                    <p class="card-text">Earn badges and certificates as you progress. Track your learning journey and celebrate your milestones.</p>
+                                    <p class="card-text">Earn badges and certificates as you progress. Track your
+                                        learning journey and celebrate your milestones.</p>
                                 </div>
                             </div>
                         </div>
@@ -1327,7 +1456,7 @@ console.log(greetUser("Developer"));</code></pre>
                     </div>
                 </div>
             </section>
-           
+
         </div>
         <!-- Dashboard Page -->
         <div id="dashboardPage" class="page-content" style="display: none;">
@@ -1336,7 +1465,7 @@ console.log(greetUser("Developer"));</code></pre>
                     <i class="bi bi-arrow-left"></i> Back to Home
                 </button>
                 <h2 class="mb-4">Learning Dashboard</h2>
-               
+
                 <!-- Stats Cards -->
                 <div class="row mb-4">
                     <div class="col-md-3 col-6">
@@ -1375,7 +1504,8 @@ console.log(greetUser("Developer"));</code></pre>
                             <h4 class="mb-4">Continue Learning</h4>
                             <div class="list-group list-group-flush">
                                 <div class="list-group-item px-0">
-                                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
                                         <div class="mb-2 mb-sm-0">
                                             <h5 class="mb-1">JavaScript Fundamentals</h5>
                                             <p class="mb-1 text-muted">Last accessed: Yesterday</p>
@@ -1383,14 +1513,16 @@ console.log(greetUser("Developer"));</code></pre>
                                         <div class="text-center mb-2 mb-sm-0">
                                             <div class="mb-1">65%</div>
                                             <div class="progress" style="width: 150px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-sm">Continue</button>
                                     </div>
                                 </div>
                                 <div class="list-group-item px-0">
-                                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
                                         <div class="mb-2 mb-sm-0">
                                             <h5 class="mb-1">Python for Data Science</h5>
                                             <p class="mb-1 text-muted">Last accessed: 3 days ago</p>
@@ -1398,14 +1530,16 @@ console.log(greetUser("Developer"));</code></pre>
                                         <div class="text-center mb-2 mb-sm-0">
                                             <div class="mb-1">40%</div>
                                             <div class="progress" style="width: 150px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 40%;"
+                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-sm">Continue</button>
                                     </div>
                                 </div>
                                 <div class="list-group-item px-0">
-                                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                                    <div
+                                        class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
                                         <div class="mb-2 mb-sm-0">
                                             <h5 class="mb-1">React Development</h5>
                                             <p class="mb-1 text-muted">Last accessed: 1 week ago</p>
@@ -1413,7 +1547,8 @@ console.log(greetUser("Developer"));</code></pre>
                                         <div class="text-center mb-2 mb-sm-0">
                                             <div class="mb-1">85%</div>
                                             <div class="progress" style="width: 150px;">
-                                                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" role="progressbar" style="width: 85%;"
+                                                    aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary btn-sm">Continue</button>
@@ -1445,8 +1580,8 @@ console.log(greetUser("Developer"));</code></pre>
                         </div>
                     </div>
                 </div>
-               
-               
+
+
 
             </div>
         </div>
@@ -1457,26 +1592,31 @@ console.log(greetUser("Developer"));</code></pre>
                     <i class="bi bi-arrow-left"></i> Back to Home
                 </button>
                 <h2 class="mb-4">Programming Languages</h2>
-               
+
                 <!-- Language Categories -->
                 <ul class="nav nav-tabs mb-4" id="languageTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">All Languages</button>
+                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
+                            type="button" role="tab">All Languages</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="web-tab" data-bs-toggle="tab" data-bs-target="#web" type="button" role="tab">Web Development</button>
+                        <button class="nav-link" id="web-tab" data-bs-toggle="tab" data-bs-target="#web" type="button"
+                            role="tab">Web Development</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="mobile-tab" data-bs-toggle="tab" data-bs-target="#mobile" type="button" role="tab">Mobile Development</button>
+                        <button class="nav-link" id="mobile-tab" data-bs-toggle="tab" data-bs-target="#mobile"
+                            type="button" role="tab">Mobile Development</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button" role="tab">Data Science</button>
+                        <button class="nav-link" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button"
+                            role="tab">Data Science</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="system-tab" data-bs-toggle="tab" data-bs-target="#system" type="button" role="tab">System Programming</button>
+                        <button class="nav-link" id="system-tab" data-bs-toggle="tab" data-bs-target="#system"
+                            type="button" role="tab">System Programming</button>
                     </li>
                 </ul>
-               
+
                 <div class="tab-content" id="languageTabsContent">
                     <!-- All Languages Tab -->
                     <div class="tab-pane fade show active" id="all" role="tabpanel">
@@ -1639,7 +1779,7 @@ console.log(greetUser("Developer"));</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- Web Development Tab -->
                     <div class="tab-pane fade" id="web" role="tabpanel">
                         <div class="row g-4">
@@ -1697,7 +1837,7 @@ console.log(greetUser("Developer"));</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- Mobile Development Tab -->
                     <div class="tab-pane fade" id="mobile" role="tabpanel">
                         <div class="row g-4">
@@ -1755,7 +1895,7 @@ console.log(greetUser("Developer"));</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- Data Science Tab -->
                     <div class="tab-pane fade" id="data" role="tabpanel">
                         <div class="row g-4">
@@ -1800,7 +1940,7 @@ console.log(greetUser("Developer"));</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <!-- System Programming Tab -->
                     <div class="tab-pane fade" id="system" role="tabpanel">
                         <div class="row g-4">
@@ -1868,7 +2008,7 @@ console.log(greetUser("Developer"));</code></pre>
                     <i class="bi bi-arrow-left"></i> Back to Home
                 </button>
                 <h2 class="mb-4">Coding Challenges</h2>
-               
+
                 <!-- Challenge Filters -->
                 <div class="card mb-4">
                     <div class="card-body">
@@ -1905,7 +2045,7 @@ console.log(greetUser("Developer"));</code></pre>
                         </div>
                     </div>
                 </div>
-               
+
                 <!-- Challenge Cards -->
                 <div class="row g-4">
                     <div class="col-md-4">
@@ -1915,7 +2055,8 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-easy">Easy</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+                                <p class="card-text">Given an array of integers nums and an integer target, return
+                                    indices of the two numbers such that they add up to target.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Algorithms</span>
                                     <span class="badge bg-secondary">Array</span>
@@ -1937,7 +2078,8 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-medium">Medium</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
+                                <p class="card-text">Given a string s containing just the characters '(', ')', '{', '}',
+                                    '[' and ']', determine if the input string is valid.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Data Structures</span>
                                     <span class="badge bg-secondary">String</span>
@@ -1959,7 +2101,9 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-hard">Hard</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">You are given an array of k linked-lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list.</p>
+                                <p class="card-text">You are given an array of k linked-lists, each linked-list is
+                                    sorted in ascending order. Merge all the linked-lists into one sorted linked-list.
+                                </p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Data Structures</span>
                                     <span class="badge bg-secondary">Linked List</span>
@@ -1981,7 +2125,8 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-easy">Easy</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Given the root of a binary tree, return the inorder traversal of its nodes' values.</p>
+                                <p class="card-text">Given the root of a binary tree, return the inorder traversal of
+                                    its nodes' values.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Data Structures</span>
                                     <span class="badge bg-secondary">Tree</span>
@@ -2003,7 +2148,8 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-medium">Medium</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Given a string s, find the length of the longest substring without repeating characters.</p>
+                                <p class="card-text">Given a string s, find the length of the longest substring without
+                                    repeating characters.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Algorithms</span>
                                     <span class="badge bg-secondary">String</span>
@@ -2025,7 +2171,8 @@ console.log(greetUser("Developer"));</code></pre>
                                 <span class="difficulty-badge difficulty-hard">Hard</span>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.</p>
+                                <p class="card-text">Given two sorted arrays nums1 and nums2 of size m and n
+                                    respectively, return the median of the two sorted arrays.</p>
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="badge bg-primary">Algorithms</span>
                                     <span class="badge bg-secondary">Array</span>
@@ -2050,8 +2197,9 @@ console.log(greetUser("Developer"));</code></pre>
                     <i class="bi bi-arrow-left"></i> Back to Home
                 </button>
                 <h2 class="mb-4">Coding Games</h2>
-                <p class="lead mb-4">Learn programming concepts through fun and interactive games. Earn achievements as you play!</p>
-               
+                <p class="lead mb-4">Learn programming concepts through fun and interactive games. Earn achievements as
+                    you play!</p>
+
                 <div class="row g-4">
                     <div class="col-md-6">
                         <div class="game-container">
@@ -2064,9 +2212,10 @@ console.log(greetUser("Developer"));</code></pre>
                             </div>
                             <div class="game-board" id="codeBlocksGame">
                                 <div class="mb-3">
-                                    <h5>Arrange the code blocks in the correct order to create a function that adds two numbers:</h5>
+                                    <h5>Arrange the code blocks in the correct order to create a function that adds two
+                                        numbers:</h5>
                                 </div>
-                               
+
                                 <div class="drop-zone" data-order="1">
                                     Drop code block here
                                 </div>
@@ -2079,7 +2228,7 @@ console.log(greetUser("Developer"));</code></pre>
                                 <div class="drop-zone" data-order="4">
                                     Drop code block here
                                 </div>
-                               
+
                                 <div class="mt-4">
                                     <h5>Available Code Blocks:</h5>
                                     <div class="code-block" draggable="true" data-id="1">
@@ -2095,19 +2244,20 @@ console.log(greetUser("Developer"));</code></pre>
                                         console.log(add(5, 3));
                                     </div>
                                 </div>
-                               
+
                                 <div class="game-feedback" id="codeBlocksFeedback">
                                     <p id="feedbackMessage"></p>
                                 </div>
-                               
+
                                 <div class="game-controls">
                                     <button class="btn btn-outline-primary game-btn" id="resetCodeBlocks">Reset</button>
-                                    <button class="btn btn-primary game-btn" id="checkCodeBlocks">Check Solution</button>
+                                    <button class="btn btn-primary game-btn" id="checkCodeBlocks">Check
+                                        Solution</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-md-6">
                         <div class="game-container">
                             <div class="game-header">
@@ -2121,7 +2271,7 @@ console.log(greetUser("Developer"));</code></pre>
                                 <div class="mb-3">
                                     <h5>Find and fix the bugs in the following code:</h5>
                                 </div>
-                               
+
                                 <div class="code-snippet">
                                     <pre><code class="language-javascript">// This function should return the sum of all numbers in an array
 function sumArray(numbers) {
@@ -2135,11 +2285,11 @@ function sumArray(numbers) {
 console.log(sumArray([1, 2, 3, 4, 5])); // Expected output: 15
 console.log(sumArray([10, 20, 30]));     // Expected output: 60</code></pre>
                                 </div>
-                               
+
                                 <div class="game-feedback" id="bugHuntFeedback">
                                     <p id="bugHuntMessage">Click on the bugs to fix them!</p>
                                 </div>
-                               
+
                                 <div class="game-controls">
                                     <button class="btn btn-outline-primary game-btn" id="resetBugHunt">Reset</button>
                                     <button class="btn btn-primary game-btn" id="checkBugHunt">Check Solution</button>
@@ -2147,7 +2297,7 @@ console.log(sumArray([10, 20, 30]));     // Expected output: 60</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-md-6">
                         <div class="game-container">
                             <div class="game-header">
@@ -2161,18 +2311,18 @@ console.log(sumArray([10, 20, 30]));     // Expected output: 60</code></pre>
                                 <div class="mb-3">
                                     <h5>Answer the following coding questions as quickly as possible:</h5>
                                 </div>
-                               
+
                                 <div class="quiz-question">
                                     What is the output of the following code?
                                 </div>
-                               
+
                                 <div class="code-snippet mb-3">
                                     <pre><code class="language-javascript">let x = 5;
 let y = "5";
 console.log(x == y);
 console.log(x === y);</code></pre>
                                 </div>
-                               
+
                                 <div class="quiz-options-grid">
                                     <div class="quiz-option-card" data-option="a">
                                         <div class="quiz-option-letter">A</div>
@@ -2191,15 +2341,17 @@ console.log(x === y);</code></pre>
                                         <div class="quiz-option-text">false, false</div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="game-controls">
-                                    <button class="btn btn-outline-primary game-btn" id="nextQuizQuestion">Next Question</button>
-                                    <button class="btn btn-primary game-btn" id="submitQuizAnswer">Submit Answer</button>
+                                    <button class="btn btn-outline-primary game-btn" id="nextQuizQuestion">Next
+                                        Question</button>
+                                    <button class="btn btn-primary game-btn" id="submitQuizAnswer">Submit
+                                        Answer</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-md-6">
                         <div class="game-container">
                             <div class="game-header">
@@ -2213,11 +2365,11 @@ console.log(x === y);</code></pre>
                                 <div class="mb-3">
                                     <h5>Complete the coding challenge as quickly as possible:</h5>
                                 </div>
-                               
+
                                 <div class="mb-3">
                                     <h6>Challenge: Write a function that reverses a string</h6>
                                 </div>
-                               
+
                                 <div class="code-editor">
                                     <div class="code-editor-header">
                                         <div class="code-editor-title">solution.js</div>
@@ -2227,19 +2379,21 @@ console.log(x === y);</code></pre>
                                         </div>
                                     </div>
                                     <div class="code-editor-content">
-                                        <textarea id="speedCodingCode" class="form-control" rows="8" style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">function reverseString(str) {
+                                        <textarea id="speedCodingCode" class="form-control" rows="8"
+                                            style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">function reverseString(str) {
   // Write your code here
  
 }</textarea>
                                     </div>
                                 </div>
-                               
+
                                 <div class="game-controls">
                                     <div class="quiz-timer">
                                         <i class="bi bi-clock"></i>
                                         <span id="speedCodingTimer">02:00</span>
                                     </div>
-                                    <button class="btn btn-primary game-btn" id="submitSpeedCoding">Submit Solution</button>
+                                    <button class="btn btn-primary game-btn" id="submitSpeedCoding">Submit
+                                        Solution</button>
                                 </div>
                             </div>
                         </div>
@@ -2261,12 +2415,12 @@ console.log(x === y);</code></pre>
                                 <h4>Alex Developer</h4>
                                 <p class="text-muted">Full Stack Developer</p>
                                 <p class="mb-4">Joined: January 2023</p>
-                               
+
                                 <button class="btn btn-primary w-100 mb-3">Edit Profile</button>
                                 <button class="btn btn-outline-secondary w-100">Settings</button>
                             </div>
                         </div>
-                       
+
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Skills</h5>
@@ -2278,7 +2432,8 @@ console.log(x === y);</code></pre>
                                         <span>Advanced</span>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 85%;"
+                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -2287,7 +2442,8 @@ console.log(x === y);</code></pre>
                                         <span>Intermediate</span>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -2296,7 +2452,8 @@ console.log(x === y);</code></pre>
                                         <span>Advanced</span>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 90%;"
+                                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -2305,30 +2462,35 @@ console.log(x === y);</code></pre>
                                         <span>Beginner</span>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 30%;"
+                                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <button class="btn btn-sm btn-outline-primary w-100">Add Skill</button>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-lg-8">
                         <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="achievements-tab" data-bs-toggle="tab" data-bs-target="#achievements" type="button" role="tab">Achievements</button>
+                                <button class="nav-link active" id="achievements-tab" data-bs-toggle="tab"
+                                    data-bs-target="#achievements" type="button" role="tab">Achievements</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="certificates-tab" data-bs-toggle="tab" data-bs-target="#certificates" type="button" role="tab">Certificates</button>
+                                <button class="nav-link" id="certificates-tab" data-bs-toggle="tab"
+                                    data-bs-target="#certificates" type="button" role="tab">Certificates</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab">Activity</button>
+                                <button class="nav-link" id="activity-tab" data-bs-toggle="tab"
+                                    data-bs-target="#activity" type="button" role="tab">Activity</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap" type="button" role="tab">Learning Roadmap</button>
+                                <button class="nav-link" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap"
+                                    type="button" role="tab">Learning Roadmap</button>
                             </li>
                         </ul>
-                       
+
                         <div class="tab-content" id="profileTabsContent">
                             <!-- Achievements Tab -->
                             <div class="tab-pane fade show active" id="achievements" role="tabpanel">
@@ -2425,7 +2587,7 @@ console.log(x === y);</code></pre>
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <!-- Certificates Tab -->
                             <div class="tab-pane fade" id="certificates" role="tabpanel">
                                 <div class="row g-4">
@@ -2440,8 +2602,10 @@ console.log(x === y);</code></pre>
                                                         <h5>JavaScript Fundamentals</h5>
                                                         <p class="text-muted">Completed: March 15, 2023</p>
                                                         <p>Score: 95%</p>
-                                                        <button class="btn btn-sm btn-outline-primary">View Certificate</button>
-                                                        <button class="btn btn-sm btn-outline-secondary ms-2">Download</button>
+                                                        <button class="btn btn-sm btn-outline-primary">View
+                                                            Certificate</button>
+                                                        <button
+                                                            class="btn btn-sm btn-outline-secondary ms-2">Download</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2458,8 +2622,10 @@ console.log(x === y);</code></pre>
                                                         <h5>Python for Data Science</h5>
                                                         <p class="text-muted">Completed: April 2, 2023</p>
                                                         <p>Score: 88%</p>
-                                                        <button class="btn btn-sm btn-outline-primary">View Certificate</button>
-                                                        <button class="btn btn-sm btn-outline-secondary ms-2">Download</button>
+                                                        <button class="btn btn-sm btn-outline-primary">View
+                                                            Certificate</button>
+                                                        <button
+                                                            class="btn btn-sm btn-outline-secondary ms-2">Download</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2476,8 +2642,10 @@ console.log(x === y);</code></pre>
                                                         <h5>React Development</h5>
                                                         <p class="text-muted">Completed: May 10, 2023</p>
                                                         <p>Score: 92%</p>
-                                                        <button class="btn btn-sm btn-outline-primary">View Certificate</button>
-                                                        <button class="btn btn-sm btn-outline-secondary ms-2">Download</button>
+                                                        <button class="btn btn-sm btn-outline-primary">View
+                                                            Certificate</button>
+                                                        <button
+                                                            class="btn btn-sm btn-outline-secondary ms-2">Download</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2494,8 +2662,10 @@ console.log(x === y);</code></pre>
                                                         <h5>Java Enterprise Development</h5>
                                                         <p class="text-muted">Completed: June 5, 2023</p>
                                                         <p>Score: 90%</p>
-                                                        <button class="btn btn-sm btn-outline-primary">View Certificate</button>
-                                                        <button class="btn btn-sm btn-outline-secondary ms-2">Download</button>
+                                                        <button class="btn btn-sm btn-outline-primary">View
+                                                            Certificate</button>
+                                                        <button
+                                                            class="btn btn-sm btn-outline-secondary ms-2">Download</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2503,14 +2673,15 @@ console.log(x === y);</code></pre>
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <!-- Activity Tab -->
                             <div class="tab-pane fade" id="activity" role="tabpanel">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="activity-item d-flex mb-4">
                                             <div class="flex-shrink-0">
-                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                    style="width: 40px; height: 40px;">
                                                     <i class="bi bi-code-slash"></i>
                                                 </div>
                                             </div>
@@ -2522,7 +2693,8 @@ console.log(x === y);</code></pre>
                                         </div>
                                         <div class="activity-item d-flex mb-4">
                                             <div class="flex-shrink-0">
-                                                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                    style="width: 40px; height: 40px;">
                                                     <i class="bi bi-check-circle"></i>
                                                 </div>
                                             </div>
@@ -2535,7 +2707,8 @@ console.log(x === y);</code></pre>
                                         </div>
                                         <div class="activity-item d-flex mb-4">
                                             <div class="flex-shrink-0">
-                                                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                    style="width: 40px; height: 40px;">
                                                     <i class="bi bi-trophy"></i>
                                                 </div>
                                             </div>
@@ -2547,7 +2720,8 @@ console.log(x === y);</code></pre>
                                         </div>
                                         <div class="activity-item d-flex mb-4">
                                             <div class="flex-shrink-0">
-                                                <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                    style="width: 40px; height: 40px;">
                                                     <i class="bi bi-calendar-check"></i>
                                                 </div>
                                             </div>
@@ -2559,7 +2733,8 @@ console.log(x === y);</code></pre>
                                         </div>
                                         <div class="activity-item d-flex">
                                             <div class="flex-shrink-0">
-                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                    style="width: 40px; height: 40px;">
                                                     <i class="bi bi-code-slash"></i>
                                                 </div>
                                             </div>
@@ -2571,7 +2746,7 @@ console.log(x === y);</code></pre>
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <!-- Learning Roadmap Tab -->
                             <div class="tab-pane fade" id="roadmap" role="tabpanel">
                                 <div class="card">
@@ -2580,42 +2755,50 @@ console.log(x === y);</code></pre>
                                         <div class="roadmap">
                                             <div class="roadmap-item completed">
                                                 <h5>HTML & CSS Basics</h5>
-                                                <p class="text-muted">Learn the fundamentals of web structure and styling</p>
+                                                <p class="text-muted">Learn the fundamentals of web structure and
+                                                    styling</p>
                                                 <small class="text-success">Completed</small>
                                             </div>
                                             <div class="roadmap-item completed">
                                                 <h5>JavaScript Fundamentals</h5>
-                                                <p class="text-muted">Master the core concepts of JavaScript programming</p>
+                                                <p class="text-muted">Master the core concepts of JavaScript programming
+                                                </p>
                                                 <small class="text-success">Completed</small>
                                             </div>
                                             <div class="roadmap-item active">
                                                 <h5>DOM Manipulation</h5>
-                                                <p class="text-muted">Learn how to interact with web pages using JavaScript</p>
+                                                <p class="text-muted">Learn how to interact with web pages using
+                                                    JavaScript</p>
                                                 <small class="text-primary">In Progress</small>
                                             </div>
                                             <div class="roadmap-item">
                                                 <h5>Frontend Frameworks</h5>
-                                                <p class="text-muted">Learn React, Vue, or Angular for building modern web applications</p>
+                                                <p class="text-muted">Learn React, Vue, or Angular for building modern
+                                                    web applications</p>
                                                 <small class="text-muted">Upcoming</small>
                                             </div>
                                             <div class="roadmap-item">
                                                 <h5>State Management</h5>
-                                                <p class="text-muted">Learn Redux, Vuex, or other state management solutions</p>
+                                                <p class="text-muted">Learn Redux, Vuex, or other state management
+                                                    solutions</p>
                                                 <small class="text-muted">Upcoming</small>
                                             </div>
                                             <div class="roadmap-item">
                                                 <h5>API Integration</h5>
-                                                <p class="text-muted">Learn how to connect your frontend to backend services</p>
+                                                <p class="text-muted">Learn how to connect your frontend to backend
+                                                    services</p>
                                                 <small class="text-muted">Upcoming</small>
                                             </div>
                                             <div class="roadmap-item">
                                                 <h5>Testing</h5>
-                                                <p class="text-muted">Learn unit testing, integration testing, and end-to-end testing</p>
+                                                <p class="text-muted">Learn unit testing, integration testing, and
+                                                    end-to-end testing</p>
                                                 <small class="text-muted">Upcoming</small>
                                             </div>
                                             <div class="roadmap-item">
                                                 <h5>Deployment</h5>
-                                                <p class="text-muted">Learn how to deploy your applications to production</p>
+                                                <p class="text-muted">Learn how to deploy your applications to
+                                                    production</p>
                                                 <small class="text-muted">Upcoming</small>
                                             </div>
                                         </div>
@@ -2651,7 +2834,9 @@ console.log(x === y);</code></pre>
                                 <!-- Video Player -->
                                 <div class="video-container">
                                     <video id="lessonVideo" width="100%" height="100%">
-                                        <source src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+                                        <source
+                                            src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+                                            type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="video-controls">
@@ -2670,11 +2855,13 @@ console.log(x === y);</code></pre>
                                         </button>
                                     </div>
                                 </div>
-                               
+
                                 <div class="lesson-content" id="lessonContent">
                                     <h3>What are Functions?</h3>
-                                    <p>Functions are reusable blocks of code that perform a specific task. They are one of the fundamental building blocks in JavaScript and most programming languages.</p>
-                                   
+                                    <p>Functions are reusable blocks of code that perform a specific task. They are one
+                                        of the fundamental building blocks in JavaScript and most programming languages.
+                                    </p>
+
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">// This is a simple function declaration
 function greetUser(name) {
@@ -2683,19 +2870,20 @@ function greetUser(name) {
 // Calling the function
 console.log(greetUser("Alex"));</code></pre>
                                     </div>
-                                   
+
                                     <h3>Why Use Functions?</h3>
                                     <p>Functions provide several benefits:</p>
-                                   
+
                                     <ul>
                                         <li><strong>Reusability:</strong> Write once, use many times</li>
-                                        <li><strong>Modularity:</strong> Break down complex problems into smaller, manageable pieces</li>
+                                        <li><strong>Modularity:</strong> Break down complex problems into smaller,
+                                            manageable pieces</li>
                                         <li><strong>Maintainability:</strong> Easier to debug and update code</li>
                                         <li><strong>Abstraction:</strong> Hide implementation details</li>
                                     </ul>
-                                   
+
                                     <h3>Types of Functions in JavaScript</h3>
-                                   
+
                                     <h4>1. Function Declarations</h4>
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">function add(a, b) {
@@ -2703,7 +2891,7 @@ console.log(greetUser("Alex"));</code></pre>
 }
 console.log(add(5, 3)); // Output: 8</code></pre>
                                     </div>
-                                   
+
                                     <h4>2. Function Expressions</h4>
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">const multiply = function(a, b) {
@@ -2711,7 +2899,7 @@ console.log(add(5, 3)); // Output: 8</code></pre>
 };
 console.log(multiply(4, 6)); // Output: 24</code></pre>
                                     </div>
-                                   
+
                                     <h4>3. Arrow Functions (ES6)</h4>
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">// Basic arrow function
@@ -2723,17 +2911,18 @@ console.log(subtract(10, 4)); // Output: 6
 const divide = (a, b) => a / b;
 console.log(divide(15, 3)); // Output: 5</code></pre>
                                     </div>
-                                   
+
                                     <h4>4. Immediately Invoked Function Expressions (IIFE)</h4>
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">(function() {
   console.log("This function runs immediately!");
 })();</code></pre>
                                     </div>
-                                   
+
                                     <h3>Function Parameters and Arguments</h3>
-                                    <p>Functions can take parameters, which are placeholders for values that will be passed to the function when it's called.</p>
-                                   
+                                    <p>Functions can take parameters, which are placeholders for values that will be
+                                        passed to the function when it's called.</p>
+
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">// Function with parameters
 function introduce(name, age, profession) {
@@ -2742,10 +2931,11 @@ function introduce(name, age, profession) {
 console.log(introduce("Sarah", 28, "Developer"));
 // Output: My name is Sarah, I'm 28 years old, and I work as a Developer.</code></pre>
                                     </div>
-                                   
+
                                     <h3>Default Parameters (ES6)</h3>
-                                    <p>You can set default values for parameters in case they are not provided when the function is called.</p>
-                                   
+                                    <p>You can set default values for parameters in case they are not provided when the
+                                        function is called.</p>
+
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">function greet(name = "Guest") {
   return `Hello, ${name}!`;
@@ -2753,10 +2943,11 @@ console.log(introduce("Sarah", 28, "Developer"));
 console.log(greet()); // Output: Hello, Guest!
 console.log(greet("Alex")); // Output: Hello, Alex!</code></pre>
                                     </div>
-                                   
+
                                     <h3>Rest Parameters (ES6)</h3>
-                                    <p>Rest parameters allow you to represent an indefinite number of arguments as an array.</p>
-                                   
+                                    <p>Rest parameters allow you to represent an indefinite number of arguments as an
+                                        array.</p>
+
                                     <div class="code-snippet">
                                         <pre><code class="language-javascript">function sum(...numbers) {
   return numbers.reduce((total, current) => total + current, 0);
@@ -2764,10 +2955,11 @@ console.log(greet("Alex")); // Output: Hello, Alex!</code></pre>
 console.log(sum(1, 2, 3)); // Output: 6
 console.log(sum(10, 20, 30, 40, 50)); // Output: 150</code></pre>
                                     </div>
-                                   
+
                                     <div class="alert alert-info">
                                         <i class="bi bi-info-circle-fill me-2"></i>
-                                        <strong>Tip:</strong> Practice creating different types of functions and experiment with parameters to solidify your understanding.
+                                        <strong>Tip:</strong> Practice creating different types of functions and
+                                        experiment with parameters to solidify your understanding.
                                     </div>
                                 </div>
                             </div>
@@ -2786,7 +2978,7 @@ console.log(sum(10, 20, 30, 40, 50)); // Output: 150</code></pre>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-header">
@@ -2799,10 +2991,11 @@ console.log(sum(10, 20, 30, 40, 50)); // Output: 150</code></pre>
                                         <span>65%</span>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                            aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
-                               
+
                                 <h6 class="mt-4 mb-3">Course Content</h6>
                                 <div class="list-group list-group-flush">
                                     <a href="#" class="list-group-item list-group-item-action active">
@@ -2862,7 +3055,7 @@ console.log(sum(10, 20, 30, 40, 50)); // Output: 150</code></pre>
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Code Playground</h5>
@@ -2877,21 +3070,23 @@ console.log(sum(10, 20, 30, 40, 50)); // Output: 150</code></pre>
                                         </div>
                                     </div>
                                     <div class="code-editor-content">
-                                        <textarea id="codePlayground" class="form-control" rows="8" style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">// Try out JavaScript functions here
+                                        <textarea id="codePlayground" class="form-control" rows="8"
+                                            style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">// Try out JavaScript functions here
 function greet(name) {
   return `Hello, ${name}!`;
 }
 console.log(greet("Smart Tutor"));</textarea>
                                     </div>
                                 </div>
-                               
+
                                 <div class="terminal">
                                     <div class="terminal-header">
                                         <div class="terminal-title">Output</div>
                                     </div>
                                     <div class="terminal-content" id="terminalOutput">
                                         <div class="terminal-line">
-                                            <span class="terminal-prompt">$</span> <span class="terminal-output">Ready to run your code...</span>
+                                            <span class="terminal-prompt">$</span> <span class="terminal-output">Ready
+                                                to run your code...</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2922,11 +3117,13 @@ console.log(greet("Smart Tutor"));</textarea>
                             <div class="card-body">
                                 <div class="mb-4">
                                     <h5>Problem Description</h5>
-                                    <p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
-                                    <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+                                    <p>Given an array of integers nums and an integer target, return indices of the two
+                                        numbers such that they add up to target.</p>
+                                    <p>You may assume that each input would have exactly one solution, and you may not
+                                        use the same element twice.</p>
                                     <p>You can return the answer in any order.</p>
                                 </div>
-                               
+
                                 <div class="mb-4">
                                     <h5>Example 1:</h5>
                                     <div class="code-snippet">
@@ -2935,7 +3132,7 @@ Output: [0, 1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</code></pre>
                                     </div>
                                 </div>
-                               
+
                                 <div class="mb-4">
                                     <h5>Example 2:</h5>
                                     <div class="code-snippet">
@@ -2943,24 +3140,28 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</code></pre>
 Output: [1, 2]</code></pre>
                                     </div>
                                 </div>
-                               
+
                                 <div class="mb-4">
                                     <h5>Constraints:</h5>
                                     <ul>
-                                        <li>2 <= nums.length <= 10<sup>4</sup></li>
-                                        <li>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></li>
-                                        <li>-10<sup>9</sup> <= target <= 10<sup>9</sup></li>
+                                        <li>2 <= nums.length <=10<sup>4</sup></li>
+                                        <li>-10<sup>9</sup>
+                                            <= nums[i] <=10<sup>9</sup>
+                                        </li>
+                                        <li>-10<sup>9</sup>
+                                            <= target <=10<sup>9</sup>
+                                        </li>
                                         <li>Only one valid answer exists.</li>
                                     </ul>
                                 </div>
-                               
+
                                 <div class="mb-4">
                                     <h5>Follow-up:</h5>
                                     <p>Can you come up with an algorithm that is less than O(n²) time complexity?</p>
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Solution</h5>
@@ -2972,11 +3173,13 @@ Output: [1, 2]</code></pre>
                                         <div class="code-editor-actions">
                                             <button id="copySolutionBtn"><i class="bi bi-copy"></i></button>
                                             <button id="runSolutionBtn"><i class="bi bi-play-fill"></i></button>
-                                            <button id="submitSolutionBtn" class="btn btn-sm btn-primary">Submit</button>
+                                            <button id="submitSolutionBtn"
+                                                class="btn btn-sm btn-primary">Submit</button>
                                         </div>
                                     </div>
                                     <div class="code-editor-content">
-                                        <textarea id="solutionCode" class="form-control" rows="15" style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">/**
+                                        <textarea id="solutionCode" class="form-control" rows="15"
+                                            style="background-color: transparent; border: none; color: #e2e8f0; font-family: 'Consolas', 'Monaco', 'Courier New', monospace;">/**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
@@ -3004,21 +3207,22 @@ var twoSum = function(nums, target) {
 };</textarea>
                                     </div>
                                 </div>
-                               
+
                                 <div class="terminal mt-3">
                                     <div class="terminal-header">
                                         <div class="terminal-title">Test Results</div>
                                     </div>
                                     <div class="terminal-content" id="testResults">
                                         <div class="terminal-line">
-                                            <span class="terminal-prompt">$</span> <span class="terminal-output">Run your solution to see the test results...</span>
+                                            <span class="terminal-prompt">$</span> <span class="terminal-output">Run
+                                                your solution to see the test results...</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-header">
@@ -3047,7 +3251,7 @@ var twoSum = function(nums, target) {
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Test Cases</h5>
@@ -3060,7 +3264,7 @@ var twoSum = function(nums, target) {
 Expected: [0, 1]</code></pre>
                                     </div>
                                 </div>
-                               
+
                                 <div class="mb-3">
                                     <h6>Test Case 2</h6>
                                     <div class="code-snippet">
@@ -3068,7 +3272,7 @@ Expected: [0, 1]</code></pre>
 Expected: [1, 2]</code></pre>
                                     </div>
                                 </div>
-                               
+
                                 <div class="mb-3">
                                     <h6>Test Case 3</h6>
                                     <div class="code-snippet">
@@ -3076,7 +3280,7 @@ Expected: [1, 2]</code></pre>
 Expected: [0, 1]</code></pre>
                                     </div>
                                 </div>
-                               
+
                                 <div class="mb-3">
                                     <h6>Test Case 4</h6>
                                     <div class="code-snippet">
@@ -3086,7 +3290,7 @@ Expected: [2, 4]</code></pre>
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="card mt-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Discuss</h5>
@@ -3113,27 +3317,31 @@ Expected: [2, 4]</code></pre>
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="card">
-                            <div class="card-header d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                            <div
+                                class="card-header d-flex flex-column flex-sm-row justify-content-between align-items-center">
                                 <h4 class="mb-2 mb-sm-0">Quiz: JavaScript Functions</h4>
                                 <div class="d-flex align-items-center">
                                     <div class="quiz-timer me-3">
                                         <i class="bi bi-clock"></i>
                                         <span id="quizTimer">05:00</span>
                                     </div>
-                                    <span>Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span></span>
+                                    <span>Question <span id="currentQuestion">1</span> of <span
+                                            id="totalQuestions">5</span></span>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="progress mb-4">
-                                    <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                               
+
                                 <div class="quiz-question" id="questionText">What is a function in JavaScript?</div>
-                               
+
                                 <div class="quiz-options-grid" id="quizOptions">
                                     <div class="quiz-option-card" data-option="a">
                                         <div class="quiz-option-letter">A</div>
-                                        <div class="quiz-option-text">A reusable block of code that performs a specific task</div>
+                                        <div class="quiz-option-text">A reusable block of code that performs a specific
+                                            task</div>
                                     </div>
                                     <div class="quiz-option-card" data-option="b">
                                         <div class="quiz-option-letter">B</div>
@@ -3148,12 +3356,15 @@ Expected: [2, 4]</code></pre>
                                         <div class="quiz-option-text">A conditional statement</div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="quiz-explanation" id="quizExplanation">
                                     <h5>Explanation:</h5>
-                                    <p id="explanationText">Functions are reusable blocks of code that perform a specific task. They are fundamental building blocks in JavaScript that help in organizing code, avoiding repetition, and making programs more modular and maintainable.</p>
+                                    <p id="explanationText">Functions are reusable blocks of code that perform a
+                                        specific task. They are fundamental building blocks in JavaScript that help in
+                                        organizing code, avoiding repetition, and making programs more modular and
+                                        maintainable.</p>
                                 </div>
-                               
+
                                 <div class="d-flex justify-content-between mt-4">
                                     <button class="btn btn-outline-secondary" id="prevQuestionBtn" disabled>
                                         <i class="bi bi-chevron-left"></i> Previous
@@ -3182,12 +3393,15 @@ Expected: [2, 4]</code></pre>
                                     <i class="bi bi-trophy-fill text-warning" style="font-size: 4rem;"></i>
                                 </div>
                                 <h2 class="mb-3">Quiz Completed!</h2>
-                                <h3 class="mb-4">Your Score: <span id="quizScore">4</span> out of <span id="quizTotalQuestions">5</span></h3>
+                                <h3 class="mb-4">Your Score: <span id="quizScore">4</span> out of <span
+                                        id="quizTotalQuestions">5</span></h3>
                                 <div class="progress mb-4 mx-auto" style="width: 300px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                        aria-valuemin="0" aria-valuemax="100">80%</div>
                                 </div>
-                                <p class="lead mb-4">Great job! You've successfully completed the quiz for "JavaScript Functions".</p>
-                               
+                                <p class="lead mb-4">Great job! You've successfully completed the quiz for "JavaScript
+                                    Functions".</p>
+
                                 <div class="row mb-4">
                                     <div class="col-md-4">
                                         <div class="card">
@@ -3214,7 +3428,7 @@ Expected: [2, 4]</code></pre>
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="d-flex flex-column flex-sm-row justify-content-center">
                                     <button class="btn btn-primary me-sm-3 mb-2 mb-sm-0" id="reviewQuizBtn">
                                         <i class="bi bi-eye me-2"></i> Review Answers
@@ -3233,7 +3447,7 @@ Expected: [2, 4]</code></pre>
             </div>
         </div>
     </div>
-   
+
     <!-- AI Chatbox -->
     <div class="ai-chatbox" id="aiChatbox">
         <div class="ai-chatbox-header" id="aiChatboxHeader">
@@ -3252,11 +3466,11 @@ Expected: [2, 4]</code></pre>
             </button>
         </div>
     </div>
-   
+
     <div class="ai-chatbox-toggle" id="aiChatboxToggle">
         <i class="bi bi-chat-dots"></i>
     </div>
-   
+
     <!-- Small Footer -->
     <footer>
         <div class="container">
@@ -3274,7 +3488,7 @@ Expected: [2, 4]</code></pre>
             </div>
         </div>
     </footer>
-   
+
     <!-- Notification -->
     <div class="notification" id="notification"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -3340,14 +3554,14 @@ Expected: [2, 4]</code></pre>
                 explanation: "A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. Callbacks are commonly used in asynchronous operations."
             }
         ];
-       
+
         // Current state
         let currentQuestion = 0;
         let selectedAnswers = {};
         let quizTimer = null;
         let timeRemaining = 300; // 5 minutes in seconds
         let userPoints = 1250; // User's current points
-       
+
         // DOM elements
         const pages = {
             home: document.getElementById('homePage'),
@@ -3369,14 +3583,14 @@ Expected: [2, 4]</code></pre>
             games: document.getElementById('gamesLink'),
             profile: document.getElementById('profileLink')
         };
-       
+
         // Footer links
         const footerHomeLink = document.getElementById('footerHomeLink');
         const footerDashboardLink = document.getElementById('footerDashboardLink');
         const footerLanguagesLink = document.getElementById('footerLanguagesLink');
         const footerChallengesLink = document.getElementById('footerChallengesLink');
         const footerGamesLink = document.getElementById('footerGamesLink');
-       
+
         // AI Chatbox elements
         const aiChatbox = document.getElementById('aiChatbox');
         const aiChatboxToggle = document.getElementById('aiChatboxToggle');
@@ -3385,7 +3599,7 @@ Expected: [2, 4]</code></pre>
         const aiChatboxInput = document.getElementById('aiChatboxInput');
         const aiChatboxSend = document.getElementById('aiChatboxSend');
         const aiChatboxToggleIcon = document.getElementById('aiChatboxToggleIcon');
-       
+
         // Video player elements
         const lessonVideo = document.getElementById('lessonVideo');
         const videoPlayBtn = document.getElementById('videoPlayBtn');
@@ -3394,14 +3608,14 @@ Expected: [2, 4]</code></pre>
         const videoTime = document.getElementById('videoTime');
         const videoVolume = document.getElementById('videoVolume');
         const videoFullscreen = document.getElementById('videoFullscreen');
-       
+
         // Game elements
         const codeBlocksGame = document.getElementById('codeBlocksGame');
         const codeBlocksFeedback = document.getElementById('codeBlocksFeedback');
         const feedbackMessage = document.getElementById('feedbackMessage');
         const resetCodeBlocks = document.getElementById('resetCodeBlocks');
         const checkCodeBlocks = document.getElementById('checkCodeBlocks');
-       
+
         // Initialize the app
         function init() {
             // Set up navigation
@@ -3429,7 +3643,7 @@ Expected: [2, 4]</code></pre>
                 e.preventDefault();
                 showPage('profile');
             });
-           
+
             // Footer navigation
             footerHomeLink.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -3451,7 +3665,7 @@ Expected: [2, 4]</code></pre>
                 e.preventDefault();
                 showPage('games');
             });
-           
+
             // Set up buttons
             document.getElementById('getStartedBtn').addEventListener('click', () => {
                 showPage('languages');
@@ -3459,7 +3673,7 @@ Expected: [2, 4]</code></pre>
             document.getElementById('exploreBtn').addEventListener('click', () => {
                 showPage('languages');
             });
-           
+
             // Language cards
             document.querySelectorAll('.language-card').forEach(card => {
                 card.addEventListener('click', () => {
@@ -3468,7 +3682,7 @@ Expected: [2, 4]</code></pre>
                     document.getElementById('lessonTitle').textContent = `${language.charAt(0).toUpperCase() + language.slice(1)} Functions`;
                 });
             });
-           
+
             // Challenge cards
             document.querySelectorAll('.challenge-card .btn-primary').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -3476,7 +3690,7 @@ Expected: [2, 4]</code></pre>
                     showPage('challenge');
                 });
             });
-           
+
             // Lesson navigation
             document.getElementById('prevLessonBtn').addEventListener('click', () => {
                 showNotification('info', 'Previous lesson loaded');
@@ -3494,25 +3708,25 @@ Expected: [2, 4]</code></pre>
             document.getElementById('startQuizBtn').addEventListener('click', () => {
                 startQuiz();
             });
-           
+
             // Challenge navigation
             document.getElementById('backToChallengesBtn').addEventListener('click', () => {
                 showPage('challenges');
             });
-           
+
             // Code playground
             document.getElementById('runCodeBtn').addEventListener('click', runCode);
             document.getElementById('copyCodeBtn').addEventListener('click', copyCode);
-           
+
             // Solution runner
             document.getElementById('runSolutionBtn').addEventListener('click', runSolution);
             document.getElementById('copySolutionBtn').addEventListener('click', copySolution);
             document.getElementById('submitSolutionBtn').addEventListener('click', submitSolution);
-           
+
             // Quiz navigation
             document.getElementById('prevQuestionBtn').addEventListener('click', prevQuestion);
             document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
-           
+
             // Quiz options
             document.addEventListener('click', (e) => {
                 if (e.target.closest('.quiz-option-card')) {
@@ -3520,7 +3734,7 @@ Expected: [2, 4]</code></pre>
                     selectOption(optionCard.dataset.option);
                 }
             });
-           
+
             // Quiz results buttons
             document.getElementById('reviewQuizBtn').addEventListener('click', () => {
                 showNotification('info', 'Review feature coming soon!');
@@ -3531,22 +3745,22 @@ Expected: [2, 4]</code></pre>
             document.getElementById('continueCourseBtn').addEventListener('click', () => {
                 showPage('lesson');
             });
-           
+
             // Video player controls
             videoPlayBtn.addEventListener('click', toggleVideoPlay);
             videoProgress.addEventListener('click', seekVideo);
             videoVolume.addEventListener('click', toggleVideoMute);
             videoFullscreen.addEventListener('click', toggleVideoFullscreen);
-           
+
             // Update video progress bar
             lessonVideo.addEventListener('timeupdate', updateVideoProgress);
             lessonVideo.addEventListener('loadedmetadata', updateVideoTime);
-           
+
             // Code Blocks Game
             initCodeBlocksGame();
             resetCodeBlocks.addEventListener('click', resetCodeBlocksGame);
             checkCodeBlocks.addEventListener('click', checkCodeBlocksSolution);
-           
+
             // AI Chatbox functionality
             aiChatboxToggle.addEventListener('click', toggleChatbox);
             aiChatboxHeader.addEventListener('click', () => {
@@ -3559,11 +3773,11 @@ Expected: [2, 4]</code></pre>
                     sendAiMessage();
                 }
             });
-           
+
             // Initialize Prism for syntax highlighting
             Prism.highlightAll();
         }
-       
+
         // Show a specific page
         function showPage(pageName) {
             Object.values(pages).forEach(page => {
@@ -3578,7 +3792,7 @@ Expected: [2, 4]</code></pre>
                 navLinks[pageName].classList.add('active');
             }
         }
-       
+
         // Show notification
         function showNotification(type, message) {
             const notification = document.getElementById('notification');
@@ -3589,7 +3803,7 @@ Expected: [2, 4]</code></pre>
                 notification.classList.remove('show');
             }, 3000);
         }
-       
+
         // Update user points
         function updateUserPoints(points) {
             userPoints += points;
@@ -3599,21 +3813,21 @@ Expected: [2, 4]</code></pre>
                 element.textContent = userPoints.toLocaleString();
             });
         }
-       
+
         // Run code in playground
         function runCode() {
             const code = document.getElementById('codePlayground').value;
             const output = document.getElementById('terminalOutput');
-           
+
             // Clear previous output
             output.innerHTML = '';
-           
+
             // Add command
             const commandLine = document.createElement('div');
             commandLine.className = 'terminal-line';
             commandLine.innerHTML = `<span class="terminal-prompt">$</span> <span class="terminal-output">Running code...</span>`;
             output.appendChild(commandLine);
-           
+
             // Simulate running code (in a real app, this would be sent to a backend service)
             setTimeout(() => {
                 try {
@@ -3623,7 +3837,7 @@ Expected: [2, 4]</code></pre>
                     resultLine.className = 'terminal-line';
                     resultLine.innerHTML = `<span class="terminal-output">Code executed successfully!</span>`;
                     output.appendChild(resultLine);
-                   
+
                     // Add a fake console.log output if it exists in the code
                     if (code.includes('console.log')) {
                         const logLine = document.createElement('div');
@@ -3637,12 +3851,12 @@ Expected: [2, 4]</code></pre>
                     errorLine.innerHTML = `<span class="terminal-error">Error: ${error.message}</span>`;
                     output.appendChild(errorLine);
                 }
-               
+
                 // Scroll to bottom
                 output.scrollTop = output.scrollHeight;
             }, 1000);
         }
-       
+
         // Copy code from playground
         function copyCode() {
             const code = document.getElementById('codePlayground').value;
@@ -3652,21 +3866,21 @@ Expected: [2, 4]</code></pre>
                 showNotification('error', 'Failed to copy code');
             });
         }
-       
+
         // Run solution
         function runSolution() {
             const solution = document.getElementById('solutionCode').value;
             const output = document.getElementById('testResults');
-           
+
             // Clear previous output
             output.innerHTML = '';
-           
+
             // Add command
             const commandLine = document.createElement('div');
             commandLine.className = 'terminal-line';
             commandLine.innerHTML = `<span class="terminal-prompt">$</span> <span class="terminal-output">Running solution...</span>`;
             output.appendChild(commandLine);
-           
+
             // Simulate running tests
             setTimeout(() => {
                 // Test results
@@ -3676,31 +3890,31 @@ Expected: [2, 4]</code></pre>
                     { name: "Test Case 3", status: "pass", message: "Passed" },
                     { name: "Test Case 4", status: "pass", message: "Passed" }
                 ];
-               
+
                 tests.forEach(test => {
                     const testLine = document.createElement('div');
                     testLine.className = 'terminal-line';
-                   
+
                     if (test.status === 'pass') {
                         testLine.innerHTML = `<span class="terminal-prompt">✓</span> <span class="terminal-output">${test.name}: ${test.message}</span>`;
                     } else {
                         testLine.innerHTML = `<span class="terminal-prompt">✗</span> <span class="terminal-error">${test.name}: ${test.message}</span>`;
                     }
-                   
+
                     output.appendChild(testLine);
                 });
-               
+
                 // Summary
                 const summaryLine = document.createElement('div');
                 summaryLine.className = 'terminal-line mt-2';
                 summaryLine.innerHTML = `<span class="terminal-output">All tests passed! 🎉</span>`;
                 output.appendChild(summaryLine);
-               
+
                 // Scroll to bottom
                 output.scrollTop = output.scrollHeight;
             }, 1500);
         }
-       
+
         // Copy solution
         function copySolution() {
             const solution = document.getElementById('solutionCode').value;
@@ -3710,107 +3924,107 @@ Expected: [2, 4]</code></pre>
                 showNotification('error', 'Failed to copy solution');
             });
         }
-       
+
         // Submit solution
         function submitSolution() {
             // Simulate submission
             showNotification('success', 'Solution submitted successfully!');
-           
+
             // In a real app, this would send the solution to a backend for evaluation
             setTimeout(() => {
                 showNotification('success', 'All test cases passed! Challenge completed. +75 points earned');
                 updateUserPoints(75);
             }, 2000);
         }
-       
+
         // Start quiz
         function startQuiz() {
             currentQuestion = 0;
             selectedAnswers = {};
             timeRemaining = 300;
-           
+
             showPage('quiz');
             loadQuestion();
             startQuizTimer();
         }
-       
+
         // Start quiz timer
         function startQuizTimer() {
             if (quizTimer) clearInterval(quizTimer);
-           
+
             quizTimer = setInterval(() => {
                 timeRemaining--;
-               
+
                 const minutes = Math.floor(timeRemaining / 60);
                 const seconds = timeRemaining % 60;
                 document.getElementById('quizTimer').textContent =
                     `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-               
+
                 if (timeRemaining <= 0) {
                     clearInterval(quizTimer);
                     finishQuiz();
                 }
             }, 1000);
         }
-       
+
         // Load current question
         function loadQuestion() {
             const question = quizData[currentQuestion];
-           
+
             document.getElementById('currentQuestion').textContent = currentQuestion + 1;
             document.getElementById('totalQuestions').textContent = quizData.length;
             document.getElementById('questionText').textContent = question.question;
-           
+
             const optionsContainer = document.getElementById('quizOptions');
             optionsContainer.innerHTML = '';
-           
+
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'quiz-option-card';
                 optionElement.dataset.option = String.fromCharCode(97 + index); // a, b, c, d
-               
+
                 const optionLetter = document.createElement('div');
                 optionLetter.className = 'quiz-option-letter';
                 optionLetter.textContent = String.fromCharCode(65 + index); // A, B, C, D
-               
+
                 const optionText = document.createElement('div');
                 optionText.className = 'quiz-option-text';
                 optionText.textContent = option;
-               
+
                 optionElement.appendChild(optionLetter);
                 optionElement.appendChild(optionText);
                 optionsContainer.appendChild(optionElement);
             });
-           
+
             // Update progress bar
             const progress = ((currentQuestion + 1) / quizData.length) * 100;
             document.querySelector('.progress-bar').style.width = `${progress}%`;
-           
+
             // Update navigation buttons
             document.getElementById('prevQuestionBtn').disabled = currentQuestion === 0;
             document.getElementById('nextQuestionBtn').textContent =
                 currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next <i class="bi bi-chevron-right"></i>';
-           
+
             // Hide explanation
             document.getElementById('quizExplanation').classList.remove('show');
-           
+
             // Restore selected answer if exists
             if (selectedAnswers[currentQuestion]) {
                 selectOption(selectedAnswers[currentQuestion]);
             }
         }
-       
+
         // Select an option
         function selectOption(option) {
             selectedAnswers[currentQuestion] = option;
-           
+
             document.querySelectorAll('.quiz-option-card').forEach(opt => {
                 opt.classList.remove('selected');
             });
-           
+
             document.querySelector(`.quiz-option-card[data-option="${option}"]`).classList.add('selected');
         }
-       
+
         // Navigate to previous question
         function prevQuestion() {
             if (currentQuestion > 0) {
@@ -3818,7 +4032,7 @@ Expected: [2, 4]</code></pre>
                 loadQuestion();
             }
         }
-       
+
         // Navigate to next question
         function nextQuestion() {
             if (currentQuestion < quizData.length - 1) {
@@ -3828,11 +4042,11 @@ Expected: [2, 4]</code></pre>
                 finishQuiz();
             }
         }
-       
+
         // Finish quiz and show results
         function finishQuiz() {
             clearInterval(quizTimer);
-           
+
             // Calculate score
             let correctAnswers = 0;
             for (let i = 0; i < quizData.length; i++) {
@@ -3840,31 +4054,31 @@ Expected: [2, 4]</code></pre>
                     correctAnswers++;
                 }
             }
-           
+
             // Update results page
             document.getElementById('quizScore').textContent = correctAnswers;
             document.getElementById('quizTotalQuestions').textContent = quizData.length;
-           
+
             // Update progress bar
             const percentage = Math.round((correctAnswers / quizData.length) * 100);
             document.querySelector('#quizResultsPage .progress-bar').style.width = `${percentage}%`;
             document.querySelector('#quizResultsPage .progress-bar').textContent = `${percentage}%`;
-           
+
             // Update stats cards
             document.querySelectorAll('#quizResultsPage .card-body h3')[0].textContent = correctAnswers;
             document.querySelectorAll('#quizResultsPage .card-body h3')[1].textContent = quizData.length - correctAnswers;
-           
+
             // Calculate points earned (20 points per correct answer)
             const pointsEarned = correctAnswers * 20;
             document.querySelectorAll('#quizResultsPage .card-body h3')[2].textContent = `+${pointsEarned}`;
-           
+
             // Update user points
             updateUserPoints(pointsEarned);
-           
+
             // Show results page
             showPage('quizResults');
         }
-       
+
         // Video player functions
         function toggleVideoPlay() {
             if (lessonVideo.paused) {
@@ -3875,27 +4089,27 @@ Expected: [2, 4]</code></pre>
                 videoPlayBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
             }
         }
-       
+
         function updateVideoProgress() {
             const percentage = (lessonVideo.currentTime / lessonVideo.duration) * 100;
             videoProgressBar.style.width = `${percentage}%`;
             updateVideoTime();
         }
-       
+
         function updateVideoTime() {
             const currentMinutes = Math.floor(lessonVideo.currentTime / 60);
             const currentSeconds = Math.floor(lessonVideo.currentTime % 60);
             const durationMinutes = Math.floor(lessonVideo.duration / 60);
             const durationSeconds = Math.floor(lessonVideo.duration % 60);
-           
+
             videoTime.textContent = `${currentMinutes}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
         }
-       
+
         function seekVideo(e) {
             const pos = (e.pageX - videoProgress.offsetLeft) / videoProgress.offsetWidth;
             lessonVideo.currentTime = pos * lessonVideo.duration;
         }
-       
+
         function toggleVideoMute() {
             lessonVideo.muted = !lessonVideo.muted;
             if (lessonVideo.muted) {
@@ -3904,7 +4118,7 @@ Expected: [2, 4]</code></pre>
                 videoVolume.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
             }
         }
-       
+
         function toggleVideoFullscreen() {
             if (!document.fullscreenElement) {
                 lessonVideo.requestFullscreen().catch(err => {
@@ -3914,49 +4128,49 @@ Expected: [2, 4]</code></pre>
                 document.exitFullscreen();
             }
         }
-       
+
         // Code Blocks Game functions
         function initCodeBlocksGame() {
             const codeBlocks = document.querySelectorAll('#codeBlocksGame .code-block');
             const dropZones = document.querySelectorAll('#codeBlocksGame .drop-zone');
-           
+
             codeBlocks.forEach(block => {
                 block.addEventListener('dragstart', handleDragStart);
                 block.addEventListener('dragend', handleDragEnd);
             });
-           
+
             dropZones.forEach(zone => {
                 zone.addEventListener('dragover', handleDragOver);
                 zone.addEventListener('drop', handleDrop);
                 zone.addEventListener('dragleave', handleDragLeave);
             });
         }
-       
+
         function handleDragStart(e) {
             e.dataTransfer.setData('text/plain', e.target.dataset.id);
             e.target.classList.add('dragging');
         }
-       
+
         function handleDragEnd(e) {
             e.target.classList.remove('dragging');
         }
-       
+
         function handleDragOver(e) {
             e.preventDefault();
             e.currentTarget.classList.add('active');
         }
-       
+
         function handleDragLeave(e) {
             e.currentTarget.classList.remove('active');
         }
-       
+
         function handleDrop(e) {
             e.preventDefault();
             e.currentTarget.classList.remove('active');
-           
+
             const blockId = e.dataTransfer.getData('text/plain');
             const block = document.querySelector(`.code-block[data-id="${blockId}"]`);
-           
+
             // Only allow one block per drop zone
             if (e.currentTarget.children.length === 0) {
                 e.currentTarget.appendChild(block.cloneNode(true));
@@ -3964,15 +4178,15 @@ Expected: [2, 4]</code></pre>
                 e.currentTarget.appendChild(block.cloneNode(true));
             }
         }
-       
+
         function resetCodeBlocksGame() {
             const dropZones = document.querySelectorAll('#codeBlocksGame .drop-zone');
             const codeBlocksContainer = document.querySelector('#codeBlocksGame .mt-4');
-           
+
             dropZones.forEach(zone => {
                 zone.textContent = 'Drop code block here';
             });
-           
+
             // Reset code blocks to original position
             const codeBlocks = [
                 { id: '1', text: 'function add(a, b) {' },
@@ -3980,9 +4194,9 @@ Expected: [2, 4]</code></pre>
                 { id: '3', text: '}' },
                 { id: '4', text: 'console.log(add(5, 3));' }
             ];
-           
+
             codeBlocksContainer.innerHTML = '<h5>Available Code Blocks:</h5>';
-           
+
             codeBlocks.forEach(block => {
                 const blockElement = document.createElement('div');
                 blockElement.className = 'code-block';
@@ -3991,28 +4205,28 @@ Expected: [2, 4]</code></pre>
                 blockElement.textContent = block.text;
                 codeBlocksContainer.appendChild(blockElement);
             });
-           
+
             // Re-initialize drag and drop
             initCodeBlocksGame();
-           
+
             // Hide feedback
             codeBlocksFeedback.classList.remove('show');
         }
-       
+
         function checkCodeBlocksSolution() {
             const dropZones = document.querySelectorAll('#codeBlocksGame .drop-zone');
             const correctOrder = ['1', '2', '3', '4'];
             let isCorrect = true;
-           
+
             dropZones.forEach((zone, index) => {
                 const block = zone.querySelector('.code-block');
                 if (!block || block.dataset.id !== correctOrder[index]) {
                     isCorrect = false;
                 }
             });
-           
+
             codeBlocksFeedback.classList.add('show');
-           
+
             if (isCorrect) {
                 feedbackMessage.textContent = 'Congratulations! You solved the puzzle correctly. +100 points earned!';
                 codeBlocksFeedback.classList.remove('error');
@@ -4024,11 +4238,11 @@ Expected: [2, 4]</code></pre>
                 codeBlocksFeedback.classList.add('error');
             }
         }
-       
+
         // AI Chatbox functions
         function toggleChatbox() {
             aiChatbox.classList.toggle('active');
-           
+
             if (aiChatbox.classList.contains('active')) {
                 aiChatboxToggle.classList.add('active');
                 aiChatboxToggleIcon.classList.remove('bi-chat-dots');
@@ -4039,31 +4253,31 @@ Expected: [2, 4]</code></pre>
                 aiChatboxToggleIcon.classList.add('bi-chat-dots');
             }
         }
-       
+
         function sendAiMessage() {
             const message = aiChatboxInput.value.trim();
             if (message === '') return;
-           
+
             // Add user message
             const userMessage = document.createElement('div');
             userMessage.className = 'ai-chat-message user';
             userMessage.textContent = message;
             aiChatboxBody.appendChild(userMessage);
-           
+
             // Clear input
             aiChatboxInput.value = '';
-           
+
             // Scroll to bottom
             aiChatboxBody.scrollTop = aiChatboxBody.scrollHeight;
-           
+
             // Simulate AI response
             setTimeout(() => {
                 const aiMessage = document.createElement('div');
                 aiMessage.className = 'ai-chat-message ai';
-               
+
                 // Simple response logic based on keywords
                 let response = "I'm here to help with your programming questions. Could you please provide more details?";
-               
+
                 if (message.toLowerCase().includes('javascript') || message.toLowerCase().includes('js')) {
                     response = "JavaScript is a versatile programming language primarily used for web development. It allows you to create interactive effects within web browsers.";
                 } else if (message.toLowerCase().includes('function')) {
@@ -4077,17 +4291,18 @@ Expected: [2, 4]</code></pre>
                 } else if (message.toLowerCase().includes('game') || message.toLowerCase().includes('play')) {
                     response = "We have several interactive coding games that can help you learn programming concepts in a fun way. Check out the Games section to try them out!";
                 }
-               
+
                 aiMessage.textContent = response;
                 aiChatboxBody.appendChild(aiMessage);
-               
+
                 // Scroll to bottom
                 aiChatboxBody.scrollTop = aiChatboxBody.scrollHeight;
             }, 1000);
         }
-       
+
         // Initialize the app when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
+
 </html>
